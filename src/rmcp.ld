@@ -341,6 +341,14 @@ SECTIONS {
 	ItemBoxFix2 = 0x8076CF17;
 	ItemBoxFix3Hook = 0x8076DD0C;
 
+	/* IOS Functions */
+	IOS_OpenAsync = 0x801937e0;
+	IOS_Open = 0x801938f8;
+	IOS_Close = 0x80193ad8;
+	IOS_IoctlAsync = 0x80194158;
+	IOS_Ioctl = 0x80194290;
+	IOS_Ioctlv = 0x801945E0;
+
 	/* Item Textures */
 	ItemTexturesHook = 0x80860AF0;
 	ItemRouletteUpdate1Hook = 0x807BA1F4;
@@ -557,6 +565,14 @@ SECTIONS {
 	VSMenuReturn2Func = 0x80837F20;
 	VSMenuSkipMulti = 0x8060334B;
 	NoGhostLoading = 0x806211DC;
+
+	/* WiiLink */
+	DWCi_Auth_SendRequest = 0x800ED6E8;
+	NHTTPCreateRequest = 0x801d8ff8;
+	NHTTPDestroyResponse = 0x801d92f8;
+	NHTTPSendRequestAsync = 0x801d925c;
+	s_auth_error = 0x802f1cB8;
+	s_auth_work = 0x8038633c;
 
 	/* Wiimmfi */
 	WiimmfiPatch1 = 0x800ED868;

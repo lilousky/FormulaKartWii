@@ -4,8 +4,8 @@ from subprocess import call
 from elftools.elf.elffile import ELFFile as elf
 
 # Locate various things
-gcc = 'powerpc-eabi-gcc'
-objcopy = 'powerpc-eabi-objcopy'
+gcc = os.path.join("..", "devkitPPC", "bin", "powerpc-eabi-gcc")
+objcopy = os.path.join("..", "devkitPPC", "bin", "powerpc-eabi-objcopy")
 destdir = 'bin'
 
 # Initialize variables
@@ -44,7 +44,7 @@ def build(isBootStrap: bool):
         outputfile = f'{destdir}/{outname}{region}.'
 
         # Initialize GCC command
-        cc_command = [gcc, '-Iinclude', '-pipe', '-nostartfiles', '-nostdinc', f'-Wl,-T,{mainpath}/mem.ld,-T,rmc.ld']
+        cc_command = [gcc, '-Iinclude', '-Isrc', '-pipe', '-nostartfiles', '-nostdinc', f'-Wl,-T,{mainpath}/mem.ld,-T,rmc.ld']
 
         # Add other build-specific stuff
         if not isBootStrap:
@@ -73,7 +73,7 @@ def build(isBootStrap: bool):
             print('Insert', hex(instruction), 'at', hex(startHook))
 
         # Convert to binary
-        c = call([objcopy, '-O', 'binary', '-R', '.eh_frame', '-R', '.eh_frame_hdr', outputfile + 'o', outputfile + 'bin'])
+        c = call([objcopy, '-O', 'binary', '-R', '.eh_frame', '--keep-file-symbols', '-R', '.eh_frame_hdr', outputfile + 'o', outputfile + 'bin'])
         if c != 0:
             print('Build failed!')
         else:

@@ -11,6 +11,7 @@
 #define bool _Bool
 #define true 1
 #define false 0
+#define NULL 0
 
 typedef signed long long s64;
 typedef signed int s32;
@@ -21,6 +22,7 @@ typedef unsigned long long u64;
 typedef unsigned int u32;
 typedef unsigned short u16;
 typedef unsigned char u8;
+typedef unsigned long size_t;
 
 typedef float f32;
 typedef double f64;
@@ -34,6 +36,7 @@ void _directWrite16(void* addr, u16 value);
 void _directWrite32(void* addr, u32 value);
 void _directWriteBranch(void* addr, void* ptr, bool lk);
 void* _directWriteArray(void* dest, void* src, u32 count); // Actually memcpy but renamed so it isn't inlined
+void OSReport(const char *format, ...);
 
 /* A hack because i don't want to do a million typecasts and declarations */
 #define SIZEOF(object) (char *)(&object+1) - (char *)(&object)

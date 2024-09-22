@@ -10,7 +10,7 @@ void loadCodes() {
 
     // Exception Handler (by Star)
     directWrite32(ShowExceptions, 0);
-
+    /*
     // Wiimmfi Code Patches (by Leseratte)
     directWriteNop(WiimmfiPatch1);
     directWrite32(WiimmfiPatch2, 0x3BC00000);
@@ -50,7 +50,10 @@ void loadCodes() {
     directWrite32(VSRegion, 0x38A04E4D);
     directWrite32(VSRegion2, 0x38E04E4D);
     directWrite32(VSRegion3, 0x38E04E4D);
-    directWrite32(VSRegion4, 0x3880004D);
+    directWrite32(VSRegion4, 0x3880004D); */
+
+    // Wiilink WFC Patcher
+    directWriteBranch(DWCi_Auth_SendRequest, wwfcStage1, false);
 
     // 30 Seconds Time Limit Modifier (by CLF78)
     directWrite16(ThirtySecs, 0x2A30);

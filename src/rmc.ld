@@ -1,6 +1,9 @@
 SECTIONS {
 	/* Base Functions */
 	_directWriteArray = 0x80005F34;
+	memcmp = 0x8000f314;
+	memcpy = 0x80005f34;
+	memset = 0x80006038;
 	StartFunc = 0x808DD400;
 
 	/* EVA Variables */

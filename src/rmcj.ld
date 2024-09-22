@@ -553,7 +553,10 @@ SECTIONS {
 	VSMenuReturn2Func = 0x8083758C;
 	VSMenuSkipMulti = 0x80602ABF;
 	NoGhostLoading = 0x80620928;
-
+	
+	/* WiiLink */
+	Real_DWCi_Auth_SendRequest = 0x800ed60c;
+	
 	/* Wiimmfi */
 	WiimmfiPatch1 = 0x800ED788;
 	WiimmfiPatch2 = 0x800EC9CC;
